@@ -106,6 +106,14 @@ public class MenuPrincipal extends javax.swing.JFrame {
 
         jMenuItem1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/red.png"))); // NOI18N
         jMenuItem1.setText("Nueva Partida");
+        jMenuItem1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jMenuItem1MouseClicked(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                jMenuItem1MousePressed(evt);
+            }
+        });
         jMenu1.add(jMenuItem1);
 
         jMenuItem2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Load.png"))); // NOI18N
@@ -163,6 +171,11 @@ public class MenuPrincipal extends javax.swing.JFrame {
             public void menuKeyTyped(javax.swing.event.MenuKeyEvent evt) {
             }
         });
+        jMenu6.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jMenu6MouseClicked(evt);
+            }
+        });
         jMenu6.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenu6ActionPerformed(evt);
@@ -200,6 +213,40 @@ public class MenuPrincipal extends javax.swing.JFrame {
         System.exit(0);
     }//GEN-LAST:event_jLabel6MouseClicked
 
+    private void jMenu6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu6MouseClicked
+        // TODO add your handling code here:
+        Player py = new Player();
+        py.cont=0;
+        MenuInicial mn = new MenuInicial();
+        mn.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_jMenu6MouseClicked
+
+    private void jMenuItem1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenuItem1MouseClicked
+        // TODO add your handling code here:
+        Player py = new Player();
+        if(py.cont<2){
+            NuevoPlayer2 np = new NuevoPlayer2();
+            np.setVisible(true);
+        }else{
+            Board ele = new Board();
+            ele.setVisible(true);
+        }
+    }//GEN-LAST:event_jMenuItem1MouseClicked
+
+    private void jMenuItem1MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenuItem1MousePressed
+        // TODO add your handling code here:
+        Player py = new Player();
+        if(py.cont<2){
+            NuevoPlayer2 np = new NuevoPlayer2();
+            np.setVisible(true);
+        }else{
+            Board ele = new Board();
+            ele.setVisible(true);
+        }
+    
+    }//GEN-LAST:event_jMenuItem1MousePressed
+
     /**
      * @param args the command line arguments
      */
@@ -225,6 +272,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(MenuPrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */

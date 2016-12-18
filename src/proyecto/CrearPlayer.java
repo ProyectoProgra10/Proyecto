@@ -31,14 +31,13 @@ public class CrearPlayer extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jPasswordField1 = new javax.swing.JPasswordField();
+        txtUser = new javax.swing.JTextField();
+        txtPass = new javax.swing.JPasswordField();
         jButton2 = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setMaximumSize(new java.awt.Dimension(216, 287));
         setMinimumSize(new java.awt.Dimension(216, 287));
         setUndecorated(true);
         getContentPane().setLayout(null);
@@ -53,7 +52,7 @@ public class CrearPlayer extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jButton1);
-        jButton1.setBounds(10, 240, 70, 27);
+        jButton1.setBounds(10, 240, 70, 28);
 
         jLabel2.setFont(new java.awt.Font("Tempus Sans ITC", 3, 12)); // NOI18N
         jLabel2.setText("New User");
@@ -65,15 +64,15 @@ public class CrearPlayer extends javax.swing.JFrame {
         getContentPane().add(jLabel3);
         jLabel3.setBounds(0, 180, 60, 17);
 
-        jTextField1.setFont(new java.awt.Font("Tempus Sans ITC", 1, 12)); // NOI18N
-        jTextField1.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        getContentPane().add(jTextField1);
-        jTextField1.setBounds(70, 140, 130, 30);
+        txtUser.setFont(new java.awt.Font("Tempus Sans ITC", 1, 12)); // NOI18N
+        txtUser.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        getContentPane().add(txtUser);
+        txtUser.setBounds(70, 140, 130, 30);
 
-        jPasswordField1.setFont(new java.awt.Font("Tempus Sans ITC", 1, 12)); // NOI18N
-        jPasswordField1.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        getContentPane().add(jPasswordField1);
-        jPasswordField1.setBounds(70, 180, 130, 30);
+        txtPass.setFont(new java.awt.Font("Tempus Sans ITC", 1, 12)); // NOI18N
+        txtPass.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        getContentPane().add(txtPass);
+        txtPass.setBounds(70, 180, 130, 30);
 
         jButton2.setBackground(new java.awt.Color(230, 217, 17));
         jButton2.setFont(new java.awt.Font("Tempus Sans ITC", 3, 13)); // NOI18N
@@ -85,7 +84,7 @@ public class CrearPlayer extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jButton2);
-        jButton2.setBounds(110, 240, 65, 27);
+        jButton2.setBounds(110, 240, 67, 28);
 
         jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/1.1.2.png"))); // NOI18N
         getContentPane().add(jLabel4);
@@ -101,12 +100,20 @@ public class CrearPlayer extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        MenuInicial m = new MenuInicial();
-        dispose();
+        new MenuInicial().setVisible(true);
+       
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
+        Player py = new Player();
+        String us = txtUser.getText();
+       String ps = txtUser.getText();
+       if(py.addPlayer(us, ps)){
+           new MenuPrincipal().setVisible(true);
+           new MenuInicial().setVisible(false);
+           dispose();
+       }
     }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
@@ -135,6 +142,7 @@ public class CrearPlayer extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(CrearPlayer.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
+        //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -151,7 +159,7 @@ public class CrearPlayer extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JPasswordField jPasswordField1;
-    private javax.swing.JTextField jTextField1;
+    private javax.swing.JPasswordField txtPass;
+    private javax.swing.JTextField txtUser;
     // End of variables declaration//GEN-END:variables
 }

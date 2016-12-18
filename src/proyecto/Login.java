@@ -10,7 +10,8 @@ package proyecto;
  * @author Jorge A. Santos
  */
 public class Login extends javax.swing.JFrame {
-
+    
+    
     /**
      * Creates new form Login
      */
@@ -32,14 +33,13 @@ public class Login extends javax.swing.JFrame {
         jButton2 = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jPasswordField1 = new javax.swing.JPasswordField();
+        txtUsuario = new javax.swing.JTextField();
+        txtContra = new javax.swing.JPasswordField();
         jLabel4 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setLocation(new java.awt.Point(0, -45));
-        setMaximumSize(new java.awt.Dimension(225, 295));
         setMinimumSize(new java.awt.Dimension(216, 287));
         setUndecorated(true);
         setType(java.awt.Window.Type.POPUP);
@@ -79,15 +79,15 @@ public class Login extends javax.swing.JFrame {
         getContentPane().add(jLabel3);
         jLabel3.setBounds(0, 190, 80, 18);
 
-        jTextField1.setFont(new java.awt.Font("Tempus Sans ITC", 1, 12)); // NOI18N
-        jTextField1.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        getContentPane().add(jTextField1);
-        jTextField1.setBounds(80, 140, 130, 30);
+        txtUsuario.setFont(new java.awt.Font("Tempus Sans ITC", 1, 12)); // NOI18N
+        txtUsuario.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        getContentPane().add(txtUsuario);
+        txtUsuario.setBounds(80, 140, 130, 30);
 
-        jPasswordField1.setFont(new java.awt.Font("Tempus Sans ITC", 1, 12)); // NOI18N
-        jPasswordField1.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        getContentPane().add(jPasswordField1);
-        jPasswordField1.setBounds(80, 190, 130, 30);
+        txtContra.setFont(new java.awt.Font("Tempus Sans ITC", 1, 12)); // NOI18N
+        txtContra.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        getContentPane().add(txtContra);
+        txtContra.setBounds(80, 190, 130, 30);
 
         jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/1.1.1.png"))); // NOI18N
         getContentPane().add(jLabel4);
@@ -102,8 +102,8 @@ public class Login extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        MenuInicial m = new MenuInicial();
-        dispose();
+        new MenuInicial().setVisible(true);
+        
           //m.btnLogin.setVisible(true);
           //m.btnCrear.setVisible(true);
         
@@ -111,11 +111,14 @@ public class Login extends javax.swing.JFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
-        MenuPrincipal mp = new MenuPrincipal();
-        MenuInicial mn = new MenuInicial();
-        mp.setVisible(true);
-        this.dispose();
-        mn.dispose();
+        Player py = new Player();
+        String us = txtUsuario.getText();
+        String ps = txtContra.getText();
+        if(py.look(us, ps)){
+            new MenuPrincipal().setVisible(true);
+            new MenuInicial().setVisible(false);
+            this.dispose();
+        }
         
     }//GEN-LAST:event_jButton2ActionPerformed
 
@@ -145,6 +148,7 @@ public class Login extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(Login.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
+        //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -161,7 +165,7 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JPasswordField jPasswordField1;
-    private javax.swing.JTextField jTextField1;
+    private javax.swing.JPasswordField txtContra;
+    private javax.swing.JTextField txtUsuario;
     // End of variables declaration//GEN-END:variables
 }
